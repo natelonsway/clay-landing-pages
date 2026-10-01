@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sarah Mitchell × Clay</title>
+<style>
+  :root {
+    --bg: #faf8f5;
+    --surface: #ffffff;
+    --ink: #1e1a16;
+    --ink-muted: #6b6259;
+    --accent: #c1512b;
+    --accent-ink: #fff6f1;
+    --line: #e4ded6;
+    --mono-bg: #f1ece5;
+    --good: #3f6b4f;
+    --good-bg: #eef3ef;
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #16130f;
+      --surface: #201b15;
+      --ink: #f3eee7;
+      --ink-muted: #b7ac9e;
+      --accent: #e07a4c;
+      --accent-ink: #2a150a;
+      --line: #34291e;
+      --mono-bg: #221c15;
+      --good: #8fc29e;
+      --good-bg: #1c2921;
+      color-scheme: dark;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #16130f;
+    --surface: #201b15;
+    --ink: #f3eee7;
+    --ink-muted: #b7ac9e;
+    --accent: #e07a4c;
+    --accent-ink: #2a150a;
+    --line: #34291e;
+    --mono-bg: #221c15;
+    --good: #8fc29e;
+    --good-bg: #1c2921;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body { margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", -apple-system, sans-serif;
+    padding-inline: 20px;
+    padding-block: 48px;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .mono {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+  }
+
+  /* --- top bar --- */
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding-bottom: 28px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .wordmark {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 700;
+    font-size: 1.35rem;
+    letter-spacing: -0.01em;
+  }
+
+  .prepared-for {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    padding: 6px 10px;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+  }
+
+  /* --- hero --- */
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+
+  h1 {
+    font-family: "Fraunces", Georgia, serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: clamp(1.8rem, 4.4vw, 2.7rem);
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+    margin: 0 0 20px;
+  }
+
+  .lede {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--ink-muted);
+    max-width: 60ch;
+    margin: 0 0 30px;
+  }
+
+  .lede strong { color: var(--ink); font-weight: 600; }
+
+  .cta-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+
+  .btn {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    padding: 13px 24px;
+    border-radius: 6px;
+    transition: opacity 0.15s ease;
+  }
+
+  .btn:hover { opacity: 0.88; }
+  .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  .cta-meta {
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+  }
+
+  section { margin-top: 56px; }
+
+  h2 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    font-size: 1.4rem;
+    letter-spacing: -0.01em;
+    margin: 0 0 8px;
+  }
+
+  .section-intro {
+    color: var(--ink-muted);
+    max-width: 58ch;
+    line-height: 1.6;
+    margin: 0 0 24px;
+  }
+
+  /* --- waterfall table --- */
+  .sheet {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .sheet-head {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    background: var(--mono-bg);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .sheet-head > div, .sheet-row > div {
+    padding: 12px 16px;
+  }
+
+  .sheet-row {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.88rem;
+    align-items: center;
+  }
+
+  .sheet-row:last-child { border-bottom: none; }
+
+  .cell-field { color: var(--ink); }
+
+  .cell-mono {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.82rem;
+  }
+
+  .pill {
+    display: inline-block;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+
+  .pill-gap {
+    background: var(--mono-bg);
+    color: var(--ink-muted);
+  }
+
+  .pill-found {
+    background: var(--good-bg);
+    color: var(--good);
+  }
+
+  .sheet-foot {
+    padding: 14px 16px;
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+    background: var(--mono-bg);
+  }
+
+  .sheet-foot strong { color: var(--ink); }
+
+  /* --- stack mapping --- */
+  .map-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .map-item {
+    display: grid;
+    grid-template-columns: 92px 1fr;
+    gap: 16px;
+    align-items: baseline;
+  }
+
+  .map-tag {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+
+  .map-text { line-height: 1.55; }
+  .map-text strong { color: var(--ink); }
+
+  @media (max-width: 480px) {
+    .sheet-head, .sheet-row { grid-template-columns: 1.2fr 0.9fr 0.9fr; }
+    .sheet-head > div, .sheet-row > div { padding: 10px; }
+    .map-item { grid-template-columns: 1fr; gap: 4px; }
+  }
+
+  /* --- closing --- */
+  .closing {
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+  }
+
+  .closing .btn { margin-bottom: 10px; }
+
+  footer {
+    margin-top: 56px;
+    font-size: 0.8rem;
+    color: var(--ink-muted);
+    line-height: 1.6;
+  }
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="wordmark">Clay</div>
+    <div class="prepared-for">Prepared for Retool</div>
+  </div>
+
+  <div class="eyebrow">For Sarah Mitchell, VP of Revenue Operations</div>
+  <h1>Your CRM shouldn't be the thing your reps stop trusting.</h1>
+  <p class="lede">
+    You asked for a Clay demo — here's what we'd actually walk through, built around
+    what a RevOps lead at Retool's stage usually needs: a CRM that stays current,
+    enrichment coverage that doesn't stall at 50%, and one system instead of five
+    half-used ones.
+  </p>
+
+  <div class="cta-row">
+    <a class="btn" href="#book-demo">Book your demo call</a>
+    <span class="cta-meta">15 minutes · pick a time that works</span>
+  </div>
+
+  <section>
+    <h2>The gap most RevOps teams are patching manually</h2>
+    <p class="section-intro">
+      Single-provider tools return an answer or a blank cell. Clay keeps going —
+      waterfalling a record through 150+ providers until something resolves. Here's
+      what that looks like on a real field:
+    </p>
+
+    <div class="sheet">
+      <div class="sheet-head">
+        <div>Provider tried</div>
+        <div>Field: direct dial</div>
+        <div>Result</div>
+      </div>
+      <div class="sheet-row">
+        <div class="cell-field">ZoomInfo</div>
+        <div class="cell-mono">—</div>
+        <div><span class="pill pill-gap">no match</span></div>
+      </div>
+      <div class="sheet-row">
+        <div class="cell-field">Apollo</div>
+        <div class="cell-mono">—</div>
+        <div><span class="pill pill-gap">no match</span></div>
+      </div>
+      <div class="sheet-row">
+        <div class="cell-field">Clearbit</div>
+        <div class="cell-mono">—</div>
+        <div><span class="pill pill-gap">no match</span></div>
+      </div>
+      <div class="sheet-row">
+        <div class="cell-field">Clay waterfall</div>
+        <div class="cell-mono">+1 (415) 555-0148</div>
+        <div><span class="pill pill-found">resolved</span></div>
+      </div>
+      <div class="sheet-foot">
+        Customers typically see <strong>2–3x</strong> the enrichment coverage of a
+        single-provider setup — the difference between a record RevOps can trust
+        and one that gets skipped.
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Where this fits into what you already own</h2>
+    <p class="section-intro">
+      Nothing here asks you to rip out your CRM or retrain your SDR team. Clay sits
+      upstream of it.
+    </p>
+
+    <div class="map-list">
+      <div class="map-item">
+        <div class="map-tag">CRM sync</div>
+        <div class="map-text">
+          <strong>Automated enrichment syncs</strong> keep records current in the
+          background, so reps stop hand-checking data before a call and the fields
+          your dashboards depend on actually reflect reality.
+        </div>
+      </div>
+      <div class="map-item">
+        <div class="map-tag">Research</div>
+        <div class="map-text">
+          <strong>Claygent</strong>, Clay's AI research agent, reads company sites,
+          LinkedIn, and news for the context a rep would otherwise dig up by hand —
+          then writes it back as a structured field, not a paragraph to skim.
+        </div>
+      </div>
+      <div class="map-item">
+        <div class="map-tag">Stack</div>
+        <div class="map-text">
+          <strong>One platform instead of several data subscriptions</strong> — the
+          consolidation question that tends to matter most once RevOps owns the GTM
+          budget line.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="closing">
+    <h2>Bring your CRM's messiest segment</h2>
+    <p class="section-intro">
+      The most useful version of this call runs on Retool's actual data, not a
+      demo account — pull a list you already know has gaps and we'll waterfall it
+      live.
+    </p>
+    <a class="btn" href="#book-demo">Book your demo call</a>
+  </div>
+
+  <footer>
+    Clay — 5,000+ GTM teams, including Vanta, Rippling, and Anthropic, run
+    enrichment and CRM hygiene through Clay.
+  </footer>
+
+</div>
+</body>
+</html>
