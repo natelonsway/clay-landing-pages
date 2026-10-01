@@ -73,7 +73,7 @@ All hex values CONFIRMED from `:root` custom properties in clay.com's CSS unless
 
 - **Primary: Roobert**, loaded as `RoobertVF` variable font, weight range 300–900, stack `Roobertvf, Arial, sans-serif` on everything (CONFIRMED from @font-face and computed styles; 60+ references in the CSS bundles). Roobert is a licensed commercial face.
 - Also declared: **Roobert Mono** (secondary/mono token), **Canela Web** (serif, 300/400 plus italics — CONFIRMED declared, sparingly used), and Inter as a legacy token.
-- **We now have Roobert trial files** (Displaay trial OTFs plus the variable TTF, supplied by Mhae) in `clay assets/Roobert-Font/`. Fine for internal previews and mockups; a public page needs a proper license. Free fallback where the trial won't stretch: **Schibsted Grotesk** (what the pilot uses), with Inter Tight as backup.
+- **Roobert is Clay's real face, but we only have trial files** (kept local, not in this repo). A public page needs a proper license. These pages use the free **Schibsted Grotesk** instead, with Inter Tight as backup.
 - **Also in `clay assets/`:** Clay's real homepage animation files — the hero mp4 and the four feature-card webm loops (Data, Agents, Orchestration, Execution, plus Reps). These can replace the hand-drawn SVG blobs on our pages.
 
 **Scale (CONFIRMED computed at 1538px viewport):**

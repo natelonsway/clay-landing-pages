@@ -8,17 +8,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
-  /* Real Roobert (trial files from Displaay, supplied by Clay) — falls back to Schibsted Grotesk */
-  @font-face {
-    font-family:"Roobert";
-    src:url("clay assets/Roobert-Font/RoobertTRIALVF-BF67243fd545701.ttf") format("truetype-variations");
-    font-weight:100 900; font-style:normal; font-display:swap;
-  }
-  @font-face {
-    font-family:"Roobert Mono";
-    src:url("clay assets/Roobert-Font/RoobertMonoTRIAL-Regular-BF67243fd29a433.otf") format("opentype");
-    font-weight:400; font-style:normal; font-display:swap;
-  }
   :root {
     /* Clay tokens — CONFIRMED from clay.com :root custom properties */
     --oat-50:#fffcfa; --oat-100:#fefdfb; --oat-200:#f3f2ed; --oat-300:#eee9df;
@@ -37,11 +26,11 @@
   * { margin:0; padding:0; box-sizing:border-box; }
   html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   body {
-    font-family:"Roobert","Schibsted Grotesk",-apple-system,Helvetica,Arial,sans-serif;
+    font-family:"Schibsted Grotesk",-apple-system,Helvetica,Arial,sans-serif;
     background:#DDD8CE; color:var(--ink); line-height:1.45;
     -webkit-font-smoothing:antialiased;
   }
-  .mono { font-family:"Roobert Mono",ui-monospace,Menlo,monospace; }
+  .mono { font-family:"Schibsted Grotesk",-apple-system,Helvetica,Arial,sans-serif; }
 
   /* ---------- page chassis: A4 landscape spreads ---------- */
   .page {
@@ -104,7 +93,7 @@
   .lockup-stage { background:var(--oat-200); border:1px solid var(--border); border-radius:18px; padding:12mm; display:flex; align-items:center; justify-content:center; }
   .lockup { display:flex; align-items:center; gap:7mm; font-weight:700; letter-spacing:-0.03em; font-size:24pt; }
   .lockup .x { font-weight:400; color:var(--oat-600); font-size:17pt; }
-  .lockup .retool { font-family:"Roobert Mono",monospace; font-weight:500; letter-spacing:-0.01em; }
+  .lockup .retool { font-family:"Schibsted Grotesk",sans-serif; font-weight:500; letter-spacing:-0.01em; }
   .dodont { display:grid; grid-template-columns:1fr 1fr; gap:4mm; }
   .dd { border-radius:12px; padding:5mm 6mm; font-size:9pt; }
   .dd b { display:block; font-size:8pt; letter-spacing:.08em; text-transform:uppercase; margin-bottom:2mm; }
@@ -321,10 +310,10 @@
     <div>
       <h2 class="sec">The faces</h2>
       <table class="tokens">
-        <tr><td><b>Roobert</b> (RoobertVF, 300–900)</td><td>Everything. Trial files in <span class="mono">clay assets/</span> (this book is set in them); license before shipping publicly. <span class="chip ok">CONFIRMED</span></td></tr>
+        <tr><td><b>Roobert</b> (RoobertVF, 300–900)</td><td>Clay's own face. Only trial files exist and they are not in this repo; license before shipping publicly. <span class="chip ok">CONFIRMED</span></td></tr>
         <tr><td><b>Roobert Mono</b></td><td>Secondary / mono token. <span class="chip ok">CONFIRMED</span></td></tr>
         <tr><td><b>Canela Web</b></td><td>Serif, declared, sparing. <span class="chip ok">CONFIRMED</span></td></tr>
-        <tr><td><b>Schibsted Grotesk</b></td><td>Free stand-in for hosted pages where the trial license won’t stretch. <span class="chip hyp">RECOMMENDED</span></td></tr>
+        <tr><td><b>Schibsted Grotesk</b></td><td>Free face used for this book and the landing pages. <span class="chip hyp">IN USE</span></td></tr>
       </table>
       <p class="rule-note" style="margin-top:4mm">The signature moves: heading line-height of <b>exactly 1.0</b>, tracking −0.03 to −0.04em, and <b>medium weights (500–575) instead of bold</b>. Get these three right and any fallback face disappears.</p>
     </div>

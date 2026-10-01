@@ -35,14 +35,14 @@ prospect, with messaging tailored to their role, to send before or around the de
   decision-maker list, which is what makes role-based personalization work.
 - `clay_value_prop.txt`: **stale.** Its "5,000+ customers", "$3.1B valuation" and "150 providers"
   are outdated. Use the current numbers below.
-- `sarah-mitchell-retool-v2.html`: **current page** (~1.3MB, self-contained).
+- `sarah-mitchell-retool-v2.html`: **current page** (~65KB; logo embedded, fonts from Google Fonts).
 - `sarah-mitchell-retool.html`: v1, superseded. Kept for comparison.
 
 `Day 2 Build Along Resources/`:
 - `clay-brand-book.md` / `.html`: brand system reconstructed from clay.com (not official), tagged
   CONFIRMED / OBSERVED / HYPOTHESIS.
 - `clay-tone-of-voice.md`: voice guide from a 12-page scrape of clay.com, with sourced examples.
-- `clay assets.zip` (110MB): logos, Roobert trial fonts, homepage videos, founder photos.
+- `clay assets.zip` (110MB): logos, Roobert trial fonts (local only, never commit), homepage videos, founder photos.
 
 ## Decisions made
 
@@ -58,8 +58,9 @@ prospect, with messaging tailored to their role, to send before or around the de
   `#dad4c8` (borders); ink `#1b1a18`. One accent family per section, never a rainbow in one
   block. Blueberry `#395afa` for data, Lime for resolved or highlighted rows, Lemon
   (`#fcbe11`/`#fae188`) for eyebrows and badges.
-- **Type:** Roobert (variable, 300-900) with Roobert Mono for data labels. Medium weights
-  (500-575). Headings at line-height 1.0 with tight negative tracking. Fallback: Schibsted Grotesk.
+- **Type:** Schibsted Grotesk (free, loaded from Google Fonts) for everything, including data
+  labels. Medium weights (500-600). Headings at line-height 1.0 with tight negative tracking.
+  Clay's own face is Roobert, but only trial files exist, so no Roobert goes in the repo or pages.
 - **Components:** 12px button radius, flat colors, no box-shadows, background-color-only hover
   transitions (`0.3s cubic-bezier(0.075, 0.82, 0.165, 1)`), large-radius tinted cards.
 - **Co-branding:** Clay leads, with the Clay mark first. The partner's accent goes in the page
@@ -81,15 +82,14 @@ prospect, with messaging tailored to their role, to send before or around the de
 Headline built around CRM trust and staleness (from the ICP pain points). Centerpiece is a mock
 waterfall-enrichment table, with the Blueberry accent and a Lime "resolved" pill. Footer uses
 the tone guide's line "Inspired by our customers. Built with love." Clay logo is
-`Full Mark/Dark/Clay_Logo_Tertiary_Blk.png` from the zip; fonts and logo are base64-embedded.
+`Full Mark/Dark/Clay_Logo_Tertiary_Blk.png` from the zip; the logo is base64-embedded. Fonts load from Google Fonts (no embedded fonts).
 
 ## Open items
 
 1. **Design sign-off:** I haven't confirmed v2's direction. Confirm before templating it four more times.
 2. **Real booking link** to replace `#confirm-demo`.
-3. **Font licensing:** the embedded Roobert files are trial fonts, fine for internal previews
-   only. Before anything goes external, license Roobert or switch to Schibsted Grotesk
-   (already the fallback, so it's a one-line change).
+3. **Fonts:** done. Roobert trial fonts were removed from every page and the brand book, which
+   now use Schibsted Grotesk. Only use Roobert if Clay's license is obtained.
 4. **Per-prospect work for the other four:** pick pain points from the ICP doc for each role
    (Marcus and Rachel: Head of Growth / Primary Buyer; Emily: SDR Manager; James: GTM Engineer)
    and pull each company's accent from its live site.

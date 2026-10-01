@@ -35,4 +35,4 @@ around the demo call.
 ## Before sending a page
 
 - Replace the placeholder booking link `#confirm-demo` with the real scheduling link.
-- **Fonts:** the embedded Roobert fonts are trial fonts, licensed for internal previews only. License Roobert or switch to the Schibsted Grotesk fallback before anything goes external.
+- **Fonts:** pages use Schibsted Grotesk, loaded free from Google Fonts. Clay's own face, Roobert, is not included because only trial files exist.
